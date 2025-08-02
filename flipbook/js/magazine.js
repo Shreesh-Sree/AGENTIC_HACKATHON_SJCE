@@ -57,7 +57,7 @@ var siteURL=flipbookcfg.name;
    
  //   $.getJSON('/conversion/web/files/flipbooks/'+siteURL+'/'+page+'-regions.json').
 
-$.getJSON('https://www.flipbookpdf.net/web/site/region.php?flip='+siteURL+'&page=' + page).
+// ...existing code...
 
      done(function(data) {
      if (data != null){
