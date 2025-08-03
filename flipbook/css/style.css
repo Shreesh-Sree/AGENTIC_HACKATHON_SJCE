@@ -18,16 +18,22 @@ body {
 }
 
 .controls-pdf {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: auto;
+    min-width: 400px;
     max-width: 600px;
-    margin-bottom: 24px;
-    padding: 16px 24px;
-    background: rgba(255,255,255,0.9);
-    border-radius: 50px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    padding: 16px 32px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 60px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
 }
 
 .navigation-controls, .utility-controls {
@@ -39,34 +45,37 @@ body {
 .controls-pdf button {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
+    border-radius: 16px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .controls-pdf button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
 .controls-pdf button:active {
-    transform: translateY(0);
+    transform: translateY(-2px) scale(1.02);
+    transition: all 0.1s ease;
 }
 
 /* Icon styles using CSS */
-.icon-prev::before { content: "‹"; font-size: 24px; color: white; font-weight: bold; }
-.icon-next::before { content: "›"; font-size: 24px; color: white; font-weight: bold; }
-.icon-zoom-in::before { content: "+"; font-size: 20px; color: white; font-weight: bold; }
-.icon-zoom-out::before { content: "−"; font-size: 20px; color: white; font-weight: bold; }
-.icon-fullscreen::before { content: "⛶"; font-size: 18px; color: white; }
+.icon-prev::before { content: "‹"; font-size: 28px; color: white; font-weight: bold; }
+.icon-next::before { content: "›"; font-size: 28px; color: white; font-weight: bold; }
+.icon-zoom-in::before { content: "+"; font-size: 24px; color: white; font-weight: bold; }
+.icon-zoom-out::before { content: "−"; font-size: 24px; color: white; font-weight: bold; }
+.icon-fullscreen::before { content: "⛶"; font-size: 20px; color: white; }
 
 /* Responsive design */
 @media (max-width: 900px) {
@@ -75,12 +84,13 @@ body {
         padding: 16px 4vw;
     }
     .controls-pdf {
-        padding: 12px 16px;
-        max-width: 90vw;
+        bottom: 20px;
+        min-width: 300px;
+        padding: 12px 20px;
     }
     .controls-pdf button {
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
     }
     .navigation-controls, .utility-controls {
         gap: 8px;
@@ -571,16 +581,6 @@ body{
 	z-index:2;
 }
 
-.controls-pdf {
-	position: absolute;
-	top: 10px;
-	right: 49px;
-	z-index: 1000;            
-	background-color: rgba(255,255,255,0.6);
-	padding: 4px 10px 2px;
-	border-radius: 12px;   
-}
-
 .down-pdf {	
 	margin-right: 6px;	
 }
@@ -705,20 +705,12 @@ body{
 	border: 2px solid gray;
 }
 
-#prev {
-   background-image:url('../pics/prev.png');
-	width: 29px;
-	height: 26px;
-	display: inline-block;
-	margin-left: 5px;
-	margin-right: 0px;
-}
-#next {
-	   background-image:url('../pics/next.png');
-	   width: 29px;
-	height: 26px;
-	display: inline-block;
-	margin-left: 5px;   
-	margin-right: 0px; 
+/* Modern button styles override old ones */
+#prev, #next {
+	background-image: none !important;
+	width: auto !important;
+	height: auto !important;
+	display: flex !important;
+	margin: 0 !important;
 }
 
