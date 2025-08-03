@@ -102,25 +102,20 @@
 </head>
 
 <body>
-    <header class="main-header">
-        <div class="container-header">
-            <h1>AGENTIC HACKATHON - SJCE</h1>
-            <p class="subtitle">Experience the future of digital flipbooks</p>
-        </div>
-    </header>
-
     <main>
         <div class="flipbook-card">
             <audio id="audio" src="flipbook/pics/page-mute.mp3"></audio>
             <div id="canvas">
                 <div class="controls-pdf">
-                    <div class="controlzoom">
-                        <button id="zoomin" title="Zoom In"><img src="flipbook/pics/zoomin.png" /></button>
-                        <button id="zoomout" title="Zoom Out"><img src="flipbook/pics/zoomout.png" /></button>
+                    <div class="navigation-controls">
+                        <button id="prev" title="Previous Page"><i class="icon-prev"></i></button>
+                        <button id="next" title="Next Page"><i class="icon-next"></i></button>
                     </div>
-                    <button class="fs" onclick="openFullscreen();" title="Fullscreen"><img src="flipbook/pics/fs.png" /></button>
-                    <button id="prev" title="Previous"><img src="flipbook/pics/prev.png" /></button>
-                    <button id="next" title="Next"><img src="flipbook/pics/next.png" /></button>
+                    <div class="utility-controls">
+                        <button id="zoomin" title="Zoom In"><i class="icon-zoom-in"></i></button>
+                        <button id="zoomout" title="Zoom Out"><i class="icon-zoom-out"></i></button>
+                        <button class="fs" onclick="openFullscreen();" title="Fullscreen"><i class="icon-fullscreen"></i></button>
+                    </div>
                 </div>
                 <div class="magazine-viewport" id="flipfull">
                     <div class="container">
@@ -179,6 +174,55 @@
             elem.webkitEnterFullscreen();
         }
     }
+
+    // Enhanced functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add ripple effect to buttons
+        const buttons = document.querySelectorAll('.controls-pdf button');
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            switch(e.key) {
+                case 'ArrowLeft':
+                    document.getElementById('prev').click();
+                    break;
+                case 'ArrowRight':
+                    document.getElementById('next').click();
+                    break;
+                case 'F11':
+                    e.preventDefault();
+                    openFullscreen();
+                    break;
+                case '+':
+                case '=':
+                    document.getElementById('zoomin').click();
+                    break;
+                case '-':
+                    document.getElementById('zoomout').click();
+                    break;
+            }
+        });
+    });
 </script>
 
 </body>

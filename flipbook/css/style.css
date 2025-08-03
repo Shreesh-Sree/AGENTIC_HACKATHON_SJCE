@@ -1,90 +1,130 @@
 body {
-	background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-	font-family: 'Open Sans', 'Ubuntu', Arial, sans-serif;
-	margin: 0;
-	min-height: 100vh;
-}
-
-.main-header {
-	background: rgba(255,255,255,0.95);
-	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-	padding: 32px 0 16px 0;
-	text-align: center;
-}
-.main-header h1 {
-	font-family: 'Great Vibes', cursive;
-	font-size: 2.8rem;
-	margin: 0;
-	color: #ff6f61;
-}
-.main-header .subtitle {
-	font-size: 1.2rem;
-	color: #333;
-	margin-top: 8px;
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    font-family: 'Open Sans', 'Ubuntu', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
 }
 
 .flipbook-card {
-	background: rgba(255,255,255,0.98);
-	box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-	border-radius: 18px;
-	max-width: 900px;
-	margin: 40px auto 40px auto;
-	padding: 32px 24px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+    background: rgba(255,255,255,0.98);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    border-radius: 18px;
+    max-width: 900px;
+    margin: 40px auto 40px auto;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .controls-pdf {
-	display: flex;
-	gap: 18px;
-	justify-content: center;
-	margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 24px;
+    padding: 16px 24px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
+
+.navigation-controls, .utility-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
 .controls-pdf button {
-	background: #ff6f61;
-	border: none;
-	border-radius: 50%;
-	width: 48px;
-	height: 48px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-	cursor: pointer;
-	transition: background 0.2s;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
+
 .controls-pdf button:hover {
-	background: #fda085;
-}
-.controls-pdf img {
-	width: 28px;
-	height: 28px;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
 }
 
-.main-footer {
-	background: rgba(255,255,255,0.95);
-	box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
-	text-align: center;
-	padding: 18px 0;
-	position: relative;
-	bottom: 0;
-	width: 100%;
-}
-.main-footer p {
-	margin: 0;
-	color: #888;
-	font-size: 1rem;
+.controls-pdf button:active {
+    transform: translateY(0);
 }
 
+/* Icon styles using CSS */
+.icon-prev::before { content: "‹"; font-size: 24px; color: white; font-weight: bold; }
+.icon-next::before { content: "›"; font-size: 24px; color: white; font-weight: bold; }
+.icon-zoom-in::before { content: "+"; font-size: 20px; color: white; font-weight: bold; }
+.icon-zoom-out::before { content: "−"; font-size: 20px; color: white; font-weight: bold; }
+.icon-fullscreen::before { content: "⛶"; font-size: 18px; color: white; }
+
+/* Responsive design */
 @media (max-width: 900px) {
-	.flipbook-card {
-		max-width: 98vw;
-		padding: 16px 4vw;
-	}
-	.main-header h1 {
-		font-size: 2rem;
-	}
+    .flipbook-card {
+        max-width: 98vw;
+        padding: 16px 4vw;
+    }
+    .controls-pdf {
+        padding: 12px 16px;
+        max-width: 90vw;
+    }
+    .controls-pdf button {
+        width: 40px;
+        height: 40px;
+    }
+    .navigation-controls, .utility-controls {
+        gap: 8px;
+    }
+}
+
+/* Ripple effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Magazine viewport enhancements */
+.magazine-viewport {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* Slider enhancements */
+.turnjs-slider {
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    height: 8px;
+    margin: 16px 0;
+}
+
+#slider {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    height: 100%;
+    transition: all 0.3s ease;
 }
 body{
 	overflow:hidden;
