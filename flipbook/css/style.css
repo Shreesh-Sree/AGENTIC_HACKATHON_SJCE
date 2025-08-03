@@ -18,22 +18,22 @@ body {
 }
 
 .controls-pdf {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: auto;
-    min-width: 400px;
-    max-width: 600px;
-    padding: 16px 32px;
-    background: rgba(255,255,255,0.95);
-    border-radius: 60px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+    position: fixed !important;
+    bottom: 30px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: auto !important;
+    min-width: 400px !important;
+    max-width: 600px !important;
+    padding: 16px 32px !important;
+    background: rgba(255,255,255,0.95) !important;
+    border-radius: 60px !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    z-index: 10000 !important;
 }
 
 .navigation-controls, .utility-controls {
@@ -43,20 +43,20 @@ body {
 }
 
 .controls-pdf button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    border-radius: 16px;
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: none !important;
+    border-radius: 16px !important;
+    width: 56px !important;
+    height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3) !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    backdrop-filter: blur(10px) !important;
 }
 
 .controls-pdf button:hover {
@@ -135,12 +135,6 @@ body {
     border-radius: 10px;
     height: 100%;
     transition: all 0.3s ease;
-}
-body{
-	overflow:hidden;
-	background-color:#fcfcfc;
-	margin:0;
-	padding:0;
 }
 
 .magazine-viewport .container{
@@ -708,9 +702,19 @@ body{
 /* Modern button styles override old ones */
 #prev, #next {
 	background-image: none !important;
-	width: auto !important;
-	height: auto !important;
+	width: 56px !important;
+	height: 56px !important;
 	display: flex !important;
 	margin: 0 !important;
+	border-radius: 16px !important;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+	border: none !important;
+	align-items: center !important;
+	justify-content: center !important;
+	box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3) !important;
+	cursor: pointer !important;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+	position: relative !important;
+	overflow: hidden !important;
 }
 
